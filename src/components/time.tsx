@@ -4,12 +4,13 @@ import { Switch } from "@headlessui/react";
 type TimeProps = {
   showMore: boolean;
   setShowMore: (show: boolean) => void;
+  time: string;
 };
 
-const Time: FC<TimeProps> = ({ showMore, setShowMore }) => {
+const Time: FC<TimeProps> = ({ showMore, setShowMore, time }) => {
   return (
-    <div className="flex flex-col gap-4">
-      <p>Time</p>
+    <div className="flex flex-col items-center gap-4">
+      <p>{time}</p>
       <Switch
         checked={showMore}
         onChange={() => setShowMore(!showMore)}
