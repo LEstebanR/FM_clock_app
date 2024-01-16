@@ -7,17 +7,25 @@ import clsx from "clsx";
 
 function App() {
   const [showMore, setShowMore] = useState(false);
-  const [ip, setIp] = useState("");
   const [time, setTime] = useState("");
   const [isDay, setIsDay] = useState<boolean>();
 
   useEffect(() => {
-    fetch("https://api.ipify.org/?format=json")
-      .then((res) => res.json())
-      .then((data) => setIp(data.ip));
-    fetch(`http://worldtimeapi.org/api/ip/${ip}`)
-      .then((res) => res.json())
-      .then((data) => setTime(data.datetime));
+    const fetchData = async () => {
+      try {
+        const ipResponse = await fetch("https://api.ipify.org/?format=json");
+        const ipData = await ipResponse.json();
+        const timeResponse = await fetch(
+          `http://worldtimeapi.org/api/ip/${ipData.ip}`
+        );
+        const timeData = await timeResponse.json();
+        setTime(timeData.datetime);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -32,7 +40,7 @@ function App() {
   return (
     <div
       className={clsx(
-        "flex flex-col justify-between items-center h-screen  w-screen bg-no-repeat bg-cover bg-center",
+        "flex flex-col justify-between items-center h-screen  w-screen bg-no-repeat bg-cover bg-center p-6",
         isDay
           ? "bg-day-mobile md:bg-day-tablet lg:bg-day-desktop "
           : "bg-night-mobile md:bg-night-tablet lg:bg-night-desktop"

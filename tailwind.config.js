@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      body: ["inter", "system-ui", "sans-serif"],
+    },
     extend: {
       backgroundImage: {
         "day-mobile": "url('./src/assets/mobile/bg-image-daytime.jpg')",
