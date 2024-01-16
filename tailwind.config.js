@@ -7,12 +7,12 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "day-mobile": "url('./src/assets/mobile/bg-image-daytime.jpg')",
-        "night-mobile": "url('./src/assets/mobile/bg-image-nighttime.jpg')",
-        "day-tablet": "url('./src/assets/tablet/bg-image-daytime.jpg')",
-        "night-tablet": "url('./src/assets/tablet/bg-image-nighttime.jpg')",
-        "day-desktop": "url('./src/assets/desktop/bg-image-daytime.jpg')",
-        "night-desktop": "url('./src/assets/desktop/bg-image-nighttime.jpg')",
+        "day-mobile": "url('./images/mobile/bg-image-daytime.jpg')",
+        "night-mobile": "url('./images/mobile/bg-image-nighttime.jpg')",
+        "day-tablet": "url('./images/tablet/bg-image-daytime.jpg')",
+        "night-tablet": "url('./images/tablet/bg-image-nighttime.jpg')",
+        "day-desktop": "url('./images/desktop/bg-image-daytime.jpg')",
+        "night-desktop": "url('./images/desktop/bg-image-nighttime.jpg')",
       },
     },
   },
